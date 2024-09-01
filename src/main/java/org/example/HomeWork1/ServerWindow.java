@@ -18,9 +18,10 @@ public class ServerWindow extends JFrame {
     JButton btnStart = new JButton("Start");
     JButton btnStop = new JButton("Stop");
     JPanel panel = new JPanel(new GridLayout(1, 2));
+    JPanel logs = new JPanel(new BorderLayout());
     ClientWindow client1 = new ClientWindow(this);
     ClientWindow client2 = new ClientWindow(this);
-    JTextArea logs = new JTextArea("Сервер выключен\n");
+    JTextArea tLogs = new JTextArea("Сервер выключен\n");
 
     public ServerWindow() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -29,18 +30,19 @@ public class ServerWindow extends JFrame {
         setTitle("Chat Server");
         setResizable(false);
 
-        logs.setEditable(false);
-        add(new JScrollPane(logs));
+        tLogs.setEditable(false);
+        logs.add(tLogs);
+        logs.add(new JScrollPane(tLogs));
         add(logs);
 
         btnStart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (isServerWorking) {
-                    logs.append("Сервер уже работает\n");
+                    tLogs.append("Сервер уже работает\n");
                 } else {
                     isServerWorking = true;
-                    logs.append("Сервер был запущен\n");
+                    tLogs.append("Сервер был запущен\n");
                 }
             }
         });
@@ -49,10 +51,10 @@ public class ServerWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!isServerWorking) {
-                    logs.append("Сервер уже выключен\n");
+                    tLogs.append("Сервер уже выключен\n");
                 } else {
                     isServerWorking = false;
-                    logs.append("Сервер был выключен\n");
+                    tLogs.append("Сервер был выключен\n");
                 }
             }
         });
@@ -76,7 +78,7 @@ public class ServerWindow extends JFrame {
      */
     public void setLastString(String lastString, ClientWindow client) {
         this.lastString = lastString;
-        logs.append(lastString);
+        tLogs.append(lastString);
         if (client == client1) {
             client2.getMessage(lastString);
         } else if (client == client2) {
