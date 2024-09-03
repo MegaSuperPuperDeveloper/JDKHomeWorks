@@ -1,4 +1,6 @@
-package org.example.HomeWork1;
+package org.example.HomeWork1.client;
+
+import org.example.HomeWork1.server.ServerWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +11,6 @@ import java.awt.event.KeyEvent;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class ClientWindow extends JFrame {
