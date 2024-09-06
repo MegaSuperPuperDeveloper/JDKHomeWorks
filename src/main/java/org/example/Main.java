@@ -7,9 +7,5 @@ public class Main {
     public static void main(String[] args) {
         // HW1
         new ServerWindow();
-
-        // HW2
-        HomeWork2 sum = new HomeWork2("ddsad", 1);
-        System.out.println(sum.sumCon());
     }
 }
