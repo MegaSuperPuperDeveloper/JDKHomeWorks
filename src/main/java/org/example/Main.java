@@ -19,14 +19,20 @@ public class Main {
         Double[] array1 = {1.1, 2.0, 3.1};
         Float[] array2 = {1.1f, 2.0f, 3.1f};
         System.out.println(compareArrays(array1, array2));
+
+        // HW4
+        HomeWork4 task1 = new HomeWork4(123123, "79099059193", "Nikolay", "10 years");
+        HomeWork4 task2 = new HomeWork4(123124, "79099059192", "Nikolay", "10 years");
+        System.out.println(HomeWork4.getStaffByReportCardNumber(123123));
+        System.out.println(HomeWork4.getPhoneNumberByName("Nikolay"));
+        System.out.println(HomeWork4.getStaffByExperience("10 years"));
+
     }
 
     public static <T, S> boolean compareArrays(T[] array1, S[] array2) {
         if (array1.length != array2.length)
             return false;
-        if (array1.getClass().getName() != array2.getClass().getName())
-            return false;
-        return true;
+        return array1.getClass().getName().equals(array2.getClass().getName());
     }
 
 }
