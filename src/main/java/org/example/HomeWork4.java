@@ -20,7 +20,7 @@ import java.util.Objects;
 
 public class HomeWork4 {
     private ArrayList<String> info = new ArrayList<>();
-    private static HashMap<Integer, ArrayList<String>> listOfStaff = new HashMap<>();
+    private static final HashMap<Integer, ArrayList<String>> listOfStaff = new HashMap<>();
 
 
     public HomeWork4(Integer reportCardNumber, String phoneNumber, String name, String experience) {

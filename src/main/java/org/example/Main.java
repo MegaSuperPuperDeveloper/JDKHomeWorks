@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.HomeWork1.server.ServerWindow;
 import org.example.HomeWork3.Calculator;
+import org.example.HomeWork5.Philosopher;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,6 +27,25 @@ public class Main {
         System.out.println(HomeWork4.getStaffByReportCardNumber(123123));
         System.out.println(HomeWork4.getPhoneNumberByName("Nikolay"));
         System.out.println(HomeWork4.getStaffByExperience("10 years"));
+
+        // HW5
+        Object[] forks = new Object[5];
+        for (int i = 0; i < forks.length; i++) {
+            forks[i] = new Object();
+        }
+        HomeWork5[] philosophers = new HomeWork5[5];
+        for (int i = 0; i < philosophers.length; i++) {
+            philosophers[i] = new HomeWork5(forks[i], forks[(i + 1) % 5], i+1);
+            philosophers[i].start();
+        }
+
+        for (int i = 0; i < 5; i++) {
+            try {
+                philosophers[i].join();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
 
     }
 
