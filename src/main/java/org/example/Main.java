@@ -2,7 +2,7 @@ package org.example;
 
 import org.example.HomeWork1.server.ServerWindow;
 import org.example.HomeWork3.Calculator;
-import org.example.HomeWork5.Philosopher;
+import org.example.HomeWork5;
 
 public class Main {
     public static void main(String[] args) {
